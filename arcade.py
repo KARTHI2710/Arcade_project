@@ -1,21 +1,24 @@
 import argparse
 import sys
+from numberguess import guessgame
+from rps import rps
 
 def gamechoose(name):
-    print("Please choose the game")
-    print("1. Rock Paper Scissors")
-    print("2. Guess the Number")
-
-    print("")
-    print("Or press x to exit the Arcade")
-    print("")
 
     while True:
+        print("Please choose the game")
+        print("1. Rock Paper Scissors")
+        print("2. Guess the Number")
+
+        print("")
+        print("Or press x to exit the Arcade")
+        print("")
         no=input()
         if no == '1':
-            print('rps')
+            rps()
         elif no == '2':
-            print('guess the number')
+            game=guessgame(name)
+            game()
         elif no == 'x':
             print("See you next time")
             print()
@@ -24,7 +27,7 @@ def gamechoose(name):
         else:
             print("Please enter a valid key")
 
-if __file__ == '__main__':
+if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Console games')
     parser.add_argument(
         '-n','--name',
